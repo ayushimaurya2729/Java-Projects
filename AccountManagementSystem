@@ -1,0 +1,62 @@
+import java.util.Scanner;
+class AccountManagementSystem
+{
+    static String pass;
+    static void accountDetails()
+    {
+        String Username;
+        long Id;
+        String IFSC;
+        int Des;
+        int Witd;
+        long Amount;
+        String Address;
+
+        Scanner sc=new Scanner(System.in);
+
+        System.out.println("enter name");
+        Username=sc.nextLine();
+
+        System.out.println("enter id");
+        Id=sc.nextLong();
+
+        System.out.println("enter ifsc");
+        IFSC=sc.next();
+
+        System.out.println("enter des");
+        Des=sc.nextInt();
+
+        System.out.println("enter witd");
+        Witd=sc.nextInt();
+
+        System.out.println("enter amount");
+        Amount=sc.nextLong();
+
+        System.out.println("enter Address");
+        Address=sc.nextLine();
+
+        System.out.println("enter paSSWORD");
+        pass=sc.next();
+
+        if (pass.equals("srimt9876"))
+        {
+            pin_change();
+        }
+        else
+        {
+            System.out.println("wrong paSSWORD");
+        }
+    }
+
+    static void pin_change()
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter new pin");
+        String pin=sc.next();
+    }
+
+    public static void main(String[] args)
+    {
+        accountDetails();
+    }
+}
