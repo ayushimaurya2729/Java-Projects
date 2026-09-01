@@ -1,0 +1,151 @@
+import java.util.Scanner;
+
+class employee{
+    int ID;
+    String Em_name;
+    String Department;
+    double salary;
+    String phone;
+    boolean add_employee = false;
+
+    Scanner sc = new Scanner(System.in);
+
+    void show() {
+
+        int choice;
+
+        do {
+            System.out.println("\n--------- Employee Management System ---------");
+            System.out.println("1. View Employee");
+            System.out.println("2. Add Employee");
+            System.out.println("3. Update Employee");
+            System.out.println("4. Delete Employee");
+            System.out.println("5. Exit");
+
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    viewEm();
+                    break;
+
+                case 2:
+                    addEm();
+                    break;
+
+                case 3:
+                    upEm();
+                    break;
+
+                case 4:
+                    dlEm();
+                    break;
+
+                case 5:
+                    System.out.println("Exiting Employee Management System...");
+                    break;
+
+                default:
+                    System.out.println("Enter Valid Choice");
+            }
+
+        } while (choice != 5);
+    }
+
+    void viewEm() {
+
+        if (add_employee == false) {
+            System.out.println("Employee does not exist.");
+        } 
+        else {
+            System.out.println("ID: " + ID);
+            System.out.println("Name: " + Em_name);
+            System.out.println("Department: " + Department);
+            System.out.println("Salary: " + salary);
+            System.out.println("Phone: " + phone);
+        }
+    }
+
+    void addEm() {
+
+        System.out.print("Enter Employee ID: ");
+        ID = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Employee Name: ");
+        Em_name = sc.nextLine();
+
+        System.out.print("Enter Department: ");
+        Department = sc.nextLine();
+
+        System.out.print("Enter Salary: ");
+        salary = sc.nextDouble();
+        sc.nextLine();
+
+        System.out.print("Enter Phone Number: ");
+        phone = sc.nextLine();
+
+        add_employee = true;
+
+        System.out.println("Employee Added Successfully.");
+    }
+
+    void upEm() {
+
+        if (add_employee == false) {
+            System.out.println("Employee does not exist.");
+            return;
+        }
+
+        System.out.print("Enter Employee ID to Update: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        if (id == ID) {
+
+            System.out.print("Enter New Name: ");
+            Em_name = sc.nextLine();
+
+            System.out.print("Enter New Department: ");
+            Department = sc.nextLine();
+
+            System.out.print("Enter New Salary: ");
+            salary = sc.nextDouble();
+            sc.nextLine();
+
+            System.out.print("Enter New Phone Number: ");
+            phone = sc.nextLine();
+
+            System.out.println("Employee Updated Successfully.");
+
+        } 
+        else {
+            System.out.println("Employee Not Found.");
+        }
+    }
+
+    void dlEm() {
+
+        if (add_employee == false) {
+            System.out.println("Employee does not exist.");
+            return;
+        }
+
+        ID = 0;
+        Em_name = "";
+        Department = "";
+        salary = 0;
+        phone = "";
+        add_employee = false;
+
+        System.out.println("Employee Deleted Successfully.");
+    }
+
+    public static void main(String[] args) {
+
+        employee obj = new employee();
+        obj.show();
+    }
+}
